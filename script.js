@@ -14,6 +14,8 @@ document.getElementById('ing').addEventListener('click', () => {
         neto: 0
     };
 
+    
+
     if (empleado.cat == "A") {
         empleado.bruto = 1840;
     } else if (empleado.cat == "B") {
@@ -30,8 +32,7 @@ document.getElementById('ing').addEventListener('click', () => {
         empleado.premio = 100;
     }
 
-    empleado.neto = (empleado.bruto + empleado.premio) -
-                    (empleado.jub + empleado.sind + empleado.obra);
+    empleado.neto = (empleado.bruto + empleado.premio) - (empleado.jub + empleado.sind + empleado.obra);
 
     datos.push(empleado);
     console.log(empleado);
@@ -41,11 +42,24 @@ document.getElementById('ing').addEventListener('click', () => {
 document.getElementById('ver').addEventListener('click', () => {
     function mostrarEmpleados() {
         salida.innerHTML = '';
+        let categC = 0;
+        
         datos.forEach(empleado => {
+            
+            if (empleado.cat == "C") {
+                categC += empleado.neto;
+            }
+            
             let h1 = document.createElement('h1');
-            h1.textContent = `Nombre: ${empleado.nom} - Neto: $${empleado.neto}`;
+            h1.textContent = `Nombre: ${empleado.nom}`;
             salida.appendChild(h1);
-    });
+        });
+
+        //DATOS A MOSTRAR
+        let h2 = document.createElement('h1');
+        h2.textContent = `Neto Categoría C: $${categC}`;
+        salida.appendChild(h2);
+
     }
     mostrarEmpleados();
 });
