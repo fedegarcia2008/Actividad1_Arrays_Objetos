@@ -10,10 +10,17 @@
         <h1>Liquidación de Sueldos</h1>
     </header>
     <form>
-        <input type="text" id="n">
-        <input type="text" id="c">
-        <input type="number" id="a">
-        <button type="button" id="ing">Ingresar</button>
+        <p>Nombre/s:<input type="text" id="n" required></p>
+        <p>Categoría:
+            <select id="c" required>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+        </p>
+        <p>Antiguedad:
+        <input type="number" id="a" required></p>
+        <button type="reset" id="ing">Ingresar empleado</button>
     </form>
     <script src="script.js"></script>
 </body>
