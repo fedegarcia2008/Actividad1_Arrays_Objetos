@@ -14,8 +14,6 @@ document.getElementById('ing').addEventListener('click', () => {
         neto: 0
     };
 
-    
-
     if (empleado.cat == "A") {
         empleado.bruto = 1840;
     } else if (empleado.cat == "B") {
@@ -42,22 +40,59 @@ document.getElementById('ing').addEventListener('click', () => {
 document.getElementById('ver').addEventListener('click', () => {
     function mostrarEmpleados() {
         salida.innerHTML = '';
-        let categC = 0;
+        let categC = 0; let cantA = 0; let cantB = 0; let cantC = 0;
         
+            //tabla de liquidacion
+
+            let tabla = document.createElement('table');
+            tabla.innerHTML = `
+            <tr>
+            <th>EMPLEADO</th>
+            <th>CATEGORÍA</th>
+            <th>ANTIGÜEDAD</th>
+            <th>SUELDO BRUTO</th>
+            <th>JUBILACIÓN</th>
+            <th>SINDICATO</th>
+            <th>OBRA SOCIAL</th>
+            <th>PREMIO</th>
+            <th>SUELDO NETO</th>
+            </tr>
+             `;
+
         datos.forEach(empleado => {
-            
-            if (empleado.cat == "C") {
+
+            if (empleado.cat == "A") {
+                cantA++;
+            } else if (empleado.cat == "B") {
+                cantB++;
+            } else {
                 categC += empleado.neto;
+                cantC++;
             }
             
-            let h1 = document.createElement('h1');
-            h1.textContent = `Nombre: ${empleado.nom}`;
-            salida.appendChild(h1);
+    let fila = document.createElement('tr');
+
+    fila.innerHTML = `
+        <td>${empleado.nom}</td>
+        <td>${empleado.cat}</td>
+        <td>${empleado.ant}</td>
+        <td>${empleado.bruto}</td>
+        <td>${empleado.jub}</td>
+        <td>${empleado.sind}</td>
+        <td>${empleado.obra}</td>
+        <td>${empleado.premio}</td>
+        <td>${empleado.neto}</td>
+    `;
+
+    tabla.appendChild(fila);
+
+
         });
 
+salida.appendChild(tabla);
         //DATOS A MOSTRAR
         let h2 = document.createElement('h1');
-        h2.textContent = `Neto Categoría C: $${categC}`;
+        h2.textContent = `Neto Categoría C: $${categC} - CantA: ${cantA} - CantB: ${cantB} - CantC: ${cantC}`;
         salida.appendChild(h2);
 
     }
