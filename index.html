@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
     <title>Liquidación de Sueldos</title>
 </head>
 <body>
@@ -10,18 +11,19 @@
         <h1>Liquidación de Sueldos</h1>
     </header>
     <form>
-        <p>Nombre/s:<input type="text" id="n" required></p>
-        <p>Categoría:
+        <h2>Ingreso del personal</h2>
+        <p>Apellido/s y Nombre/s: <input type="text" id="n" required>
+        Categoría:
             <select id="c" required>
                 <option>A</option>
                 <option>B</option>
                 <option>C</option>
             </select>
-        </p>
-        <p>Antiguedad:
-        <input type="number" id="a" required></p>
+        
+        Antiguedad:
+        <input type="number" id="a" required>
         <button type="reset" id="ing">Ingresar empleado</button>
-        <button type="submit" id="ver">Mostrar lista</button>
+        <button type="submit" id="ver">Mostrar lista</button></p>
     </form>
     <div id="salida"></div>
     <script src="script.js"></script>
