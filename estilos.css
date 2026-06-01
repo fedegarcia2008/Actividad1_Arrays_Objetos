@@ -1,15 +1,16 @@
 * {
     margin: 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 header {
     margin: 10px;
     padding: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 h2 {
     padding-bottom: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 form {
@@ -17,18 +18,33 @@ form {
     padding: 10px;
     border: 2px solid red;
     font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 select, input, button {
     font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
 
 button {
     background-color: aqua;
 }
 
 table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+}
+
+#salida {
     margin: 10px;
-    padding: 10px;
-    border: 2px solid red;
 }
