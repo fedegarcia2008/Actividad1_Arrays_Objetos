@@ -40,8 +40,6 @@ document.getElementById('ver').addEventListener('click', () => {
     salida.innerHTML = '';
     function mostrarEmpleados() {
         
-       // let categC = 0; 
-        let cantA = 0; let cantB = 0; let cantC = 0;
         //tabla de liquidacion
 
         let tabla = document.createElement('table');
@@ -61,15 +59,6 @@ document.getElementById('ver').addEventListener('click', () => {
              `;
              
              datos.forEach(empleado => {
-
-            if (empleado.cat == "A") {
-                cantA++;
-            } else if (empleado.cat == "B") {
-                cantB++;
-            } else {
-             //   categC += empleado.neto;
-                cantC++;
-            }
             
             let fila = document.createElement('tr');
             fila.innerHTML = `
@@ -106,7 +95,6 @@ salida.appendChild(tabla);
         tabla.innerHTML = `
             <tr>
             <th>EMPLEADO</th>
-            <th>CATEGORÍA</th>
             <th>SUELDO NETO</th>
             </tr>
              `;
@@ -116,7 +104,6 @@ salida.appendChild(tabla);
                         let fila = document.createElement('tr');
             fila.innerHTML = `
             <td>${empleado.nom}</td>
-            <td>${empleado.cat}</td>
             <td>$${empleado.neto}</td>
             `;
             tabla.appendChild(fila);
@@ -128,6 +115,43 @@ salida.appendChild(tabla);
     }
     netoC();
 
+    function cantidad() {
+
+        let tabla = document.createElement('table');
+        let h2 = document.createElement('h2');
+        h2.textContent = `Cantidad de empleados`;
+        tabla.innerHTML = `
+            <tr>
+            <th>CATEGORÍA A</th>
+            <th>CATEGORÍA B</th>
+            <th>CATEGORÍA C</th>
+            </tr>
+             `;
+let cantA = 0; let cantB = 0; let cantC = 0;
+        datos.forEach(empleado => {
+
+                        if (empleado.cat == "A") {
+                cantA++;
+            } else if (empleado.cat == "B") {
+                cantB++;
+            } else {
+             
+                cantC++;
+            }
+
+           });
+            let fila = document.createElement('tr');
+            fila.innerHTML = `
+            <td>${cantA}</td>
+            <td>${cantB}</td>
+            <td>${cantC}</td>
+            `;
+            tabla.appendChild(fila);
+            salida.appendChild(h2);
+            salida.appendChild(tabla);
+            
+    }
+    cantidad();
 
         function liquidacionA() {
         
