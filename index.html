@@ -11,20 +11,41 @@
         <h1>Liquidación de Sueldos</h1>
     </header>
     <form>
-        <h2>Ingreso del personal</h2>
-        <p>Apellido/s y Nombre/s: <input type="text" id="n" required>
-        Categoría:
+        <h2>Carga del personal</h2>
+        <label>Apellido/s y Nombre/s: <input type="text" id="n" required></label>
+        <label>Categoría:</label>
             <select id="c" required>
+                <option>Seleccione una opción</option>
                 <option>A</option>
                 <option>B</option>
                 <option>C</option>
             </select>
         
-        Antiguedad:
+        <label>Antigüedad</label>
         <input type="number" id="a" required>
+            
         <button type="reset" id="ing">Ingresar empleado</button>
-        <button type="submit" id="ver">Mostrar lista</button></p>
+        <button type="button" id="ver">Mostrar lista</button>
+
     </form>
+
+<form>
+    <h2>Buscar empleado</h2>
+
+    <input type="text" id="buscEmp" placeholder="Ingrese nombre">
+    <button type="button" id="buscar">Buscar</button>
+</form>
+
+
+
+    <!--   <form>
+    <h2>Busqueda del personal</h2>
+        <label>Apellido/s y Nombre/s: <input type="text" id="buscEmp"></label>
+        <button type="submit" id="buscar">Buscar empleado</button>
+   
+
+    </form> -->
+    
     <div id="salida"></div>
     <script src="script.js"></script>
 </body>

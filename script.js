@@ -36,11 +36,75 @@ document.getElementById('ing').addEventListener('click', () => {
     
 });
 
+
+function buscar() {
+    salida.innerHTML = '';
+    let buscado = document.getElementById('buscEmp').value;
+
+    let empleado = datos.find(emp =>
+        emp.nom.toLowerCase() === buscado.toLowerCase()
+    );
+
+ 
+
+    if (empleado) {
+
+        let tabla = document.createElement('table');
+
+        tabla.innerHTML = `
+            <tr>
+                <th>EMPLEADO</th>
+                <th>CATEGORÍA</th>
+                <th>ANTIGÜEDAD</th>
+                <th>SUELDO BRUTO</th>
+                <th>JUBILACIÓN</th>
+                <th>SINDICATO</th>
+                <th>OBRA SOCIAL</th>
+                <th>PREMIO</th>
+                <th>SUELDO NETO</th>
+            </tr>
+        `;
+
+        let fila = document.createElement('tr');
+
+        fila.innerHTML = `
+            <td>${empleado.nom}</td>
+            <td>${empleado.cat}</td>
+            <td>${empleado.ant} años</td>
+            <td>$${empleado.bruto}</td>
+            <td>$${empleado.jub}</td>
+            <td>$${empleado.sind.toFixed(2)}</td>
+            <td>$${empleado.obra.toFixed(2)}</td>
+            <td>$${empleado.premio}</td>
+            <td>$${empleado.neto}</td>
+        `;
+
+        if (empleado.ant < 15) {
+            fila.style.color = "red";
+        } else if (empleado.ant > 20) {
+            fila.style.color = "blue";
+        }
+
+        tabla.appendChild(fila);
+        salida.appendChild(tabla);
+
+    } else {
+        let h2 = document.createElement('h2');
+        h2.textContent = `El nombre buscado no se encuentra.`;
+                    salida.appendChild(h2);
+    }
+}
+
+document.getElementById('buscar').addEventListener('click', () => {    
+
+buscar()
+});
+
+
 document.getElementById('ver').addEventListener('click', () => {
     salida.innerHTML = '';
     function mostrarEmpleados() {
         
-        //tabla de liquidacion
 
         let tabla = document.createElement('table');
 
@@ -86,6 +150,19 @@ document.getElementById('ver').addEventListener('click', () => {
 salida.appendChild(tabla);
     }
     mostrarEmpleados();
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     function netoC() {
 
@@ -227,7 +304,7 @@ let cantA = 0; let cantB = 0; let cantC = 0;
 
         let tabla = document.createElement('table');
         let h2 = document.createElement('h2');
-        h2.textContent = `Empleados con más de 6 años de antiguedad`;
+        h2.textContent = `Empleados con más de 6 años de antigüedad`;
         tabla.innerHTML = `
             <tr>
             <th>EMPLEADO</th>
