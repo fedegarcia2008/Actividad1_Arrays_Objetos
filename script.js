@@ -14,6 +14,14 @@ document.getElementById('ing').addEventListener('click', () => {
         neto: 0
     };
 
+
+if (!n.checkValidity() ||
+    !c.checkValidity() ||
+    !a.checkValidity()) {
+    alert(`Complete correctamente los campos.`);
+    return;
+}
+
     if (empleado.cat == "A") {
         empleado.bruto = 1840;
     } else if (empleado.cat == "B") {
@@ -38,6 +46,13 @@ document.getElementById('ing').addEventListener('click', () => {
 
 
 function buscar() {
+
+    if (!buscEmp.checkValidity()) {
+    alert(`Complete correctamente el campo.`);
+    return;
+}
+
+
     salida.innerHTML = '';
     let buscado = document.getElementById('buscEmp').value;
 
@@ -89,9 +104,9 @@ function buscar() {
         salida.appendChild(tabla);
 
     } else {
-        let h2 = document.createElement('h2');
-        h2.textContent = `El nombre buscado no se encuentra.`;
-                    salida.appendChild(h2);
+        let h3 = document.createElement('h3');
+        h3.textContent = `El nombre buscado no se encuentra.`;
+                    salida.appendChild(h3);
     }
 }
 
@@ -152,23 +167,11 @@ salida.appendChild(tabla);
     mostrarEmpleados();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     function netoC() {
 
         let tabla = document.createElement('table');
         let h2 = document.createElement('h2');
-        h2.textContent = `Sueldo Neto - Categoría C`;
+        h2.textContent = `Sueldo neto - Categoría C`;
         tabla.innerHTML = `
             <tr>
             <th>EMPLEADO</th>
@@ -178,7 +181,7 @@ salida.appendChild(tabla);
 
         datos.forEach(empleado => {
             if (empleado.cat == "C") {
-                        let fila = document.createElement('tr');
+            let fila = document.createElement('tr');
             fila.innerHTML = `
             <td>${empleado.nom}</td>
             <td>$${empleado.neto}</td>
